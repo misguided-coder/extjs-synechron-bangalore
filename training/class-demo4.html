@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('Book',{
+		config : {
+			isbn : 1001,
+			title : 'JavaScript Good Parts',
+			pages : 170,
+			author : 'Douglos Crakford',
+			price : 500
+		},
+		constructor:function(args) {
+			document.write("Inside Book constructor()!!!!");
+			document.write('<br/>');
+			this.initConfig(args);
+		},
+		changePrice:function(percentage) {
+			this.setPrice(this.getPrice() + (this.getPrice() * percentage));
+		},
+		display:function() {
+			document.write(this.getIsbn());
+			document.write('<br/>');
+
+			document.write(this.getTitle());
+			document.write('<br/>');
+
+			document.write(this.getPages());
+			document.write('<br/>');
+
+			document.write(this.getAuthor());
+			document.write('<br/>');
+
+			document.write(this.getPrice());
+			document.write('<br/>');
+
+			document.write("=================================");
+			document.write('<br/>');
+		}			
+	});
+	
+	var book1 = new Book({isbn:1000,pages:180});
+	var book2 = new Book({isbn:1002,pages:780,author:'Raju',title:'ExtJS 6.0'});
+	var book3 = Ext.create('Book',{isbn:1003,pages:510,author:'Jaggu',title:'Learn ExtJS 7.0',price:400.00});
+		
+	book1.display();
+	book1.changePrice(.40);
+	book1.display();
+		
+	book2.display();
+	book3.display();
+	
+	document.write(book1.getIsbn());
+	document.write('<br/>');
+	document.write(book2.getIsbn());
+	document.write('<br/>');
+	document.write(book3.getIsbn());
+	document.write('<br/>');
+
+	/*document.write(book2.isbn);
+	document.write('<br/>');
+
+	document.write(book2.title);
+	document.write('<br/>');
+
+	document.write(book2.pages);
+	document.write('<br/>');
+
+	document.write(book2.author);
+	document.write('<br/>');*/
+
+</script>
+</head>
+<body>
+</body>
+</html>

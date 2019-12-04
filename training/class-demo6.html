@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('Syn.hr.lms.Book',{
+		isbn:1001,
+		title:'JavaScript Good Parts',
+		pages:170,
+		author:'Douglos Crakford'
+	});
+	
+	var book1 = new Syn.hr.lms.Book();
+	var book2 = Ext.create('Syn.hr.lms.Book');
+	
+	document.write(book1);
+	document.write('<br/>');
+
+	document.write(book2);
+	document.write('<br/>');
+
+	document.write(book1.isbn);
+	document.write('<br/>');
+
+	document.write(book2.isbn);
+	document.write('<br/>');
+
+	document.write(book1.title);
+	document.write('<br/>');
+
+	document.write(book1.pages);
+	document.write('<br/>');
+
+	document.write(book1.author);
+	document.write('<br/>');
+
+</script>
+</head>
+<body>
+</body>
+</html>

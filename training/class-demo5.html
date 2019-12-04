@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('Car',{
+		config : {
+			vin : 100,
+			model : 'X1',
+			make : 'BMW',
+			price : 500,
+			speed : 80 //miles per hr
+		},
+		constructor:function(args) {
+			document.write("Inside Car constructor()!!!!");
+			document.write('<br/>');
+			this.initConfig(args);
+		},
+		speedUp:function() {
+			this.setSpeed(this.getSpeed() + 10);
+		},
+		speedDown:function() {
+			this.setSpeed(this.getSpeed() - 10);
+		},
+		display:function() {
+			document.write(this.getVin());
+			document.write('<br/>');
+
+			document.write(this.getModel());
+			document.write('<br/>');
+
+			document.write(this.getMake());
+			document.write('<br/>');
+
+			document.write(this.getPrice());
+			document.write('<br/>');
+
+			document.write(this.getSpeed());
+			document.write('<br/>');
+
+			document.write("=================================");
+			document.write('<br/>');
+		}			
+	});
+
+
+	Ext.define('LuxuryCar',{
+		extend : 'Car',
+		config : {
+			doors : 2,
+			type : 'SUV'	
+		},
+		constructor:function(args) {
+			this.callParent(arguments);
+			document.write("Inside LuxuryCar constructor()!!!!");
+			document.write('<br/>');
+			this.initConfig(args);
+		},
+		display:function() {
+			this.callParent(arguments);
+			document.write(this.getDoors());
+			document.write('<br/>');
+			document.write(this.getType());
+			document.write('<br/>');
+		}
+	});
+
+
+	//var luxuryCar = Ext.create('LuxuryCar');
+	//var luxuryCar = Ext.create('LuxuryCar',{doors:1,type:'Sedan'});
+	var luxuryCar = Ext.create('LuxuryCar',{vin:200,doors:1,type:'Sedan'});
+
+	luxuryCar.display();
+	luxuryCar.speedUp();
+	luxuryCar.speedUp();
+	luxuryCar.speedUp();
+	luxuryCar.speedUp();
+	luxuryCar.speedUp();
+
+	luxuryCar.speedDown();
+	luxuryCar.speedDown();
+	luxuryCar.display();
+
+
+	/*document.write(luxuryCar.getVin());
+	document.write('<br/>');
+	document.write(luxuryCar.getDoors());
+	document.write('<br/>');
+	document.write(luxuryCar.getType());
+	document.write('<br/>');*/
+
+</script>
+</head>
+<body>
+</body>
+</html>
