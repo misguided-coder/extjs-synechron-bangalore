@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+
+	var events = {
+		click:function(){
+			Ext.Msg.alert('Project Message','Hi Button clicked!!');	
+		},
+		mouseover:function(){
+			Ext.Msg.alert('Project Message','Hi Button mouseover!!');	
+		},
+		mouseout:function(){
+			Ext.Msg.alert('Project Message','Hi Button mouseout!!');	
+		}				
+	};	
+
+
+	Ext.onReady(function () {
+	
+		Ext.create('Ext.button.Button',{
+			renderTo:'div0',
+			text:'GO',
+			onClick:function(evt){
+			 	//window.alert('Button clicked!!');	
+			 	Ext.Msg.alert('Project Message',`${evt.target.innerHTML} Button clicked!!`);	
+			},
+			/*onMouseOver:function(){
+			 	Ext.Msg.alert('Project Message','Button mouseover!!');	
+			},
+			onMouseOut:function(){
+			 	Ext.Msg.alert('Project Message','Button mouseout!!');	
+			}*/
+		});
+
+		Ext.create('Ext.button.Button',{
+			renderTo:'div0',
+			text:'Hello',
+			listeners:{
+				click:function(){
+			 		Ext.Msg.alert('Project Message','Button clicked!!');	
+				},
+				mouseover:function(){
+			 		Ext.Msg.alert('Project Message','Button mouseover!!');	
+				},
+				mouseout:function(){
+			 		Ext.Msg.alert('Project Message','Button mouseout!!');	
+				}				
+			}			
+		});
+
+		Ext.create('Ext.button.Button',{
+			renderTo:'div0',
+			text:'Hi',
+			listeners:events		
+		});
+	});
+		
+</script>
+</head>
+<body>
+	<div id='div0'></div>
+</body>
+</html>

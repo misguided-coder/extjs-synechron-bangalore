@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+	
+	Ext.onReady(function () {
+
+		Ext.create('Ext.panel.Panel',{
+			renderTo:'div0',		
+			width:'100%',
+			height:300,
+			title: 'Simple Panel',
+			html : 'I am inner HTML here.',
+			defaults : {
+				xtype:'button',
+				padding : '10 20 10 50',
+			},
+			items :[
+				{
+					text : 'Hit Me'
+				},
+				{
+					text : 'Use Me'
+				},
+				{
+					text : 'Click Me'
+				},
+				{
+					xtype:'textfield',
+					fieldLabel : 'Age',
+					value : 20
+				},
+				Ext.create('Ext.form.field.Text',{
+					fieldLabel : 'Phone',
+					value : '9873636262'
+				})
+			]
+		});		
+	});
+		
+</script>
+</head>
+<body>
+	<div id='div0' style='margin:auto;width:400px;height:300px'>
+	</div>
+</body>
+</html>

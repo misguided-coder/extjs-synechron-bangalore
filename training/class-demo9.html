@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('BMW.automobile.util.ConsoleLogger',{
+		log : function (message) {
+			var date = new Date();
+			console.log(`INFO -> T : ${date} -> ${message}`);
+		}		
+	});
+
+	Ext.define('BMW.automobile.util.UILogger',{
+		ui : function (message) {
+			var date = new Date();
+			document.write(`INFO -> T : ${date} -> ${message}`);
+			document.write("<br/>");
+		}		
+	});
+
+	Ext.define('BMW.automobile.util.Timer',{
+		now : function () {
+			var date = new Date();
+			var time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+			document.write(`Current Time : ${time}`);
+			document.write("<br/>");
+		}		
+	});
+
+	Ext.define('BMW.automobile.global.Car',{
+		config : {
+			vin : 100,
+			model : 'X1',
+			make : 'BMW',
+			price : 500,
+			speed : 80 //miles per hr
+		},
+		statics : {
+			CARS_SOLD : 34000,
+			MODELS : 20	
+		},
+		mixins : {
+			log : 'BMW.automobile.util.ConsoleLogger',
+			ui : 'BMW.automobile.util.UILogger',
+			now : 'BMW.automobile.util.Timer'
+		},
+		constructor:function(args) {
+			document.write("Inside Car constructor()!!!!");
+			document.write('<br/>');
+			this.initConfig(args);
+		},
+		speedUp:function() {
+			this.setSpeed(this.getSpeed() + 10);
+		},
+		speedDown:function() {
+			this.setSpeed(this.getSpeed() - 10);
+		},
+		display:function() {
+			this.log("Inside Car.display()");
+					
+			document.write("Cars Sold : "+this.statics().CARS_SOLD);
+			document.write('<br/>');
+
+			document.write("Cars Sold : "+this.self.CARS_SOLD);
+			document.write('<br/>');
+
+			document.write(this.getVin());
+			document.write('<br/>');
+
+			document.write(this.getModel());
+			document.write('<br/>');
+
+			document.write(this.getMake());
+			document.write('<br/>');
+
+			document.write(this.getPrice());
+			document.write('<br/>');
+
+			document.write(this.getSpeed());
+			document.write('<br/>');
+
+			document.write("=================================");
+			document.write('<br/>');
+		}			
+	});
+
+
+	var car1 = Ext.create('BMW.automobile.global.Car');
+
+	car1.display();
+	car1.speedUp();
+	car1.speedDown();
+	car1.log("Car is sold in $2 million.");
+	car1.ui("Car is sold in $2 million.");
+	car1.now();
+	
+</script>
+</head>
+<body>
+</body>
+</html>

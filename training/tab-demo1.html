@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+	
+	Ext.onReady(function () {
+
+		var tabContainer = null;
+
+		Ext.create('Ext.button.Button',{
+			renderTo:Ext.getBody(),		
+			text : 'Add Tab',
+			handler : function() {
+				var tab = Ext.create('Ext.tab.Tab',{
+					title:'Learn',
+					html:'<h2>Learn even if you are old.</h2>'
+				});
+
+				tabContainer.add(tab);
+				
+				console.log("A new tab is just added to tab container!!!!!");
+			}		
+		});		
+
+		tabContainer = Ext.create('Ext.tab.Panel',{
+			renderTo:'div0',		
+			width:'100%',
+			height:300,
+			activeTab : 4,
+			tabPosition: 'top',
+			items :[
+				Ext.create('Ext.tab.Tab',{
+					title:'Movies',
+					html:'<h2>Movies are always entertaining.</h2>'
+				}),
+				{
+					title:'Songs',
+					html:'<h2>Movies are always motivating.</h2>'
+				},
+				{
+					title:'Politics',
+					html:'<h2>It is a very good business.</h2>'
+				},		
+				{
+					title:'Games',
+					html:'<h2>Cricket is a time pass game.</h2>',
+					closable : true
+				},
+				{
+					title:'Cars',
+					items : [
+						{
+							xtype:'button',
+							text : 'Sell'
+						},
+						{
+							xtype:'button',
+							text : 'Buy'
+						},
+						{
+							xtype:'panel',
+							title : 'Car Info',
+							width : 200,
+							height : 200,
+							bodyPadding : '20',
+							margin : '30',
+							items : [
+								{
+									xtype:'component',
+									html : '400 cars sold.'
+								}
+								
+							]
+						}
+	
+					]
+				}			
+			]
+		});		
+	});
+		
+</script>
+</head>
+<body>
+	<div id='div0' style='margin:auto;width:600px;height:300px'>
+	</div>
+</body>
+</html>

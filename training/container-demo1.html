@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+	
+	Ext.onReady(function () {
+
+		var comp1 = Ext.create('Ext.button.Button',{
+			text : 'Hello',
+			onClick : function() {
+				console.log("Hello Button clicked!!!");
+			}
+		});		
+
+		var comp2 = Ext.create('Ext.button.Button',{
+			text : 'Hi' 
+		});		
+
+		var comp3 = Ext.create('Ext.button.Button',{
+			text : 'Bye' 
+		});		
+
+		var comp4 = Ext.create('Ext.Component',{
+			html : 'Hello Ji' 
+		});		
+		
+		Ext.create('Ext.container.Container',{
+			renderTo:'div0',		
+			width:'100%',
+			height:300,
+			items: [
+				comp1,
+				comp2,
+				comp3,
+				comp4,
+				Ext.create('Ext.button.Button',{
+					text : 'Save',
+					onClick : function() {
+						console.log("Save Button clicked!!!");
+					} 
+				}),
+				Ext.create('Ext.button.Button',{
+					text : 'Update' 
+				}),
+				Ext.create('Ext.button.Button',{
+					text : 'Delete' 
+				}),
+				{
+					xtype: 'button',
+					text : 'Color',
+					onClick : function() {
+						console.log("Color Button clicked!!!");
+					} 
+				},
+				{
+					xtype: 'button',
+					text : 'Font'
+				},
+				{
+					xtype: 'button',
+					text : 'Size' 
+				},
+				{
+					xtype: 'component',
+					html : 'Look at Me' 
+				},
+
+			] 
+		});		
+	});
+		
+</script>
+</head>
+<body>
+	<div id='div0' style='margin:auto;width:400px;height:300px'>
+	</div>
+</body>
+</html>
