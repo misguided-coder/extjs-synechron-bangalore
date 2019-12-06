@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('Syn.gbs.City',{
+		extend : 'Ext.data.Model',
+		fields : [
+			{name:'city',type:'string'},
+			{name:'population',type:'int'},
+			{name:'weather',type:'int',defaultValue:20},
+			{name:'vehicle',type:'int',defaultValue:50000}
+		],
+		validators : [
+			{name:'city',type: 'presence'},
+			{name:'city',type: 'length',min:4,max:15},
+			{name:'population',type: 'presence'}
+		]		
+	});
+
+	//var city1 = new Syn.gbs.City({city:'GOA',population:30000,weather:30,vehicle:10000});
+	//var city1 = new Syn.gbs.City({city:'GOA',population:30000,weather:30});
+	//var city1 = new Syn.gbs.City({city:'GOA',population:30000});
+	//var city1 = Ext.create('Syn.gbs.City',{city:'GOA',population:30000});
+	var city1 = Ext.create('Syn.gbs.City',{city:'GOA'});
+
+	var errors = city1.validate();
+
+	document.write(errors.isValid());
+	document.write("<br/>");
+
+	document.write(errors.length);
+	document.write("<br/>");
+
+	document.write(errors.getByField('city'));
+	document.write("<br/>");
+	document.write(errors.getByField('population'));
+	document.write("<br/>");
+
+	document.write(city1.isValid());
+	document.write("<br/>");
+
+	document.write(`City Name : ${city1.get('city')}`);
+	document.write("<br/>");
+	document.write(`City Population : ${city1.get('population')}`);
+	document.write("<br/>");
+	document.write(`City Weather : ${city1.get('weather')}`);
+	document.write("<br/>");
+	document.write(`City Vehicles : ${city1.get('vehicle')}`);
+	document.write("<br/>");
+	document.write(`======================================`);
+	document.write("<br/>");
+	
+</script>
+</head>
+<body>
+</body>
+</html>

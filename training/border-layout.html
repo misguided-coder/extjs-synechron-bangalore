@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+	
+	Ext.onReady(function () {
+
+		Ext.create('Ext.container.Viewport',{
+			renderTo: Ext.getBody(),		
+			layout : {
+				type: 'border'
+			},
+			defaults : {
+				xtype : 'panel',
+				split : true,	
+				collapsible:true
+			},
+			items :[
+				{
+					html : '<h2>Synechron Technologies</h2>',
+					region : 'north'
+				},
+				{
+					html : '<p><em>Synechron is a &copy; of Synechron,USA</em></p>',
+					region : 'south'
+				},
+				{
+					title : 'Advertisement Panel',
+					html : 'Run Advertisement here.....',
+					region : 'east'
+				},
+				{
+					title : 'Nav Panel',
+					region : 'west',
+					layout : 'accordion',
+					items : [
+						{
+							xtype:'panel',
+							title : 'DB',
+							defaults : { xtype :'button'},
+							items : [
+								{text:'Save'},
+								{text:'Update'},
+								{text:'Delete'}
+							] 
+						},
+						{
+							xtype:'panel',
+							title : 'Email',
+							defaults : { xtype :'button'},
+							items : [
+								{text:'Send'},
+								{text:'Receive'},
+								{text:'Configure'}
+							] 
+						}
+					]
+				},
+				{
+					title : 'Content Panel',
+					html : 'Do work here...',
+					region : 'center'
+				}
+			]
+		});		
+	});
+		
+</script>
+</head>
+<body>
+</body>
+</html>

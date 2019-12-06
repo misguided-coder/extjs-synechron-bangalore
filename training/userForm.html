@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel='stylesheet' href='css/theme-neptune/resources/theme-neptune-all-debug.css' />
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+	
+	Ext.onReady(function () {
+
+		Ext.create('Ext.form.Panel',{
+			renderTo:'div0',
+			id:'form0',
+			title : 'User Registration Form',		
+			width:'100%',
+			fieldDefaults : {
+				labelAlign : 'left',
+				labelWidth : 80,
+				anchor : '100%',
+				msgTarget : 'under'
+			},
+			items : [
+				Ext.create('Ext.form.field.Text',{
+					fieldLabel: 'User ID',
+					name : 'userid',
+                            		value: '101',
+					allowBlank : false,
+					blankText : 'User ID can not be blank!!'
+		    		}),
+         		        {
+                        	 	xtype: 'textfield', 
+                   	         	name: 'password',
+                            		inputType: 'password',
+                            		fieldLabel: 'Password',
+					value : 'secret'
+                        	},
+         			{
+					xtype : 'textfield',
+					fieldLabel: 'User Name',
+					name : 'username',
+                            		value: 'Rohan',
+					allowBlank : false,
+					blankText : 'Name can not be blank!!',
+					minLength : 4,
+					minLengthText : 'Name should contain minimum {0} letters!!',
+					maxLength : 10,
+					maxLengthText : 'Name can contain maximium {0} letters only!!',
+                    		},
+				{
+					xtype : 'numberfield',
+					fieldLabel: 'Age',
+					name : 'age',
+                            		value: '20',
+					step : 5,
+					minValue : '20',
+					maxValue : '80'
+                    		},
+				{
+					xtype:'fieldcontainer',
+					layout : 'hbox',
+					items : [
+						{
+							xtype : 'radiofield',
+							fieldLabel: 'Gender',
+							name : 'gender',
+                            				value: 'M',
+							boxLabel : 'Male'
+                    				},
+						{
+							xtype : 'radiofield',
+							fieldLabel: '',
+							hideEmptyLabel: false,
+         						name : 'gender',
+                            				value: 'F',
+							boxLabel : 'Female'
+                    				},
+					]
+				},
+				{
+                		        xtype: 'displayfield',
+                            		name: 'display',
+                            		fieldLabel: 'Info',
+                            		value: 'Register faster, lang queue there.'
+                        	},
+				{
+					xtype : 'datefield',
+					fieldLabel: 'DOB',
+					name : 'dob',
+                            		value: new Date(2010,06,10),
+                            		minValue: new Date(2000,12,31),
+                            		maxValue: new Date(),
+					format : 'd-M-y',
+					invalidText : '{0} DOB is invalid. Valid value is : {1} only.'
+	            		},
+				{
+					xtype : 'timefield',
+					fieldLabel: 'TOB',
+					name : 'tob',
+                            		value: '10 PM',
+					increment : 30,
+	            		},
+				{
+					xtype : 'sliderfield',
+					fieldLabel: 'Weight (KG)',
+					name : 'weight',
+                            		value: 70,
+					minValue : 20,
+					maxValue : 180
+      	            		},
+				{
+					xtype : 'textfield',
+					fieldLabel: 'Spouse',
+					name : 'spouse',
+                            		value: 'Mohini',
+					vtype: 'alpha'
+	            		},
+				{
+					xtype : 'multislider',
+					fieldLabel: 'Height (CM)',
+					name : 'height',
+                            		values: [50,40]
+      	            		},
+				{
+					xtype : 'textfield',
+					fieldLabel: 'School',
+					name : 'school',
+                            		value: '12 Standard',
+					vtype: 'alphanum'
+	            		},
+				{
+					xtype : 'textareafield',
+					fieldLabel: 'Address',
+					name : 'address',
+                            		value: '10 Janpath Delhi'
+	            		},
+				{
+					xtype : 'textfield',
+					fieldLabel: 'Phone',
+					name : 'phone',
+                            		value: '91-11-89008000',
+				        regex: /^\d{2}-\d{2}-\d{8}$/, 
+      	            		},
+				{
+					xtype : 'textfield',
+					fieldLabel: 'Email',
+					name : 'email',
+                            		value: 'rohan@gmail.com',
+					vtype: 'email'
+      	            		},
+				{
+					xtype : 'textfield',
+					fieldLabel: 'URL',
+					name : 'facebookurl',
+                            		value: 'http://facebook.com/rohan/delhi',
+					vtype: 'url'
+      	            		},
+			]
+		});		
+	});
+		
+</script>
+</head>
+<body>
+	<div id='div0' style='margin:auto;width:350px'>
+	</div>
+</body>
+</html>

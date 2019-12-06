@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	var store0 = Ext.create('Ext.data.ArrayStore', {
+		fields : ['city','population','weather','vehicle'],
+		data : [
+			['Pune',2000000,20,15000],
+			['Delhi',5000000,35,45000],
+			['Hyderabd',3000000,28,10000],
+			['Mumbai',99999000,32,55000],
+			['Bangalore',4500000,20,70000],
+			['Calcutta',1000000,32,40000],
+			['Chennai',2200000,35,12000]
+		] 
+	});
+
+	store0.add({city:'Dehradun',population:30000,weather:18,vehicle:4000});
+
+	store0.add([
+			{city:'Haridwar',population:60000,weather:28,vehicle:5000},
+			{city:'Muzaffarnagar',population:7000,weather:38,vehicle:6000}
+	]);
+	
+	store0.sort('population','DESC');
+	
+	store0.filter('weather',32);
+
+	document.write("Length : "+store0.data.length);
+	document.write("<br/>");
+
+	var len = store0.data.length;
+
+	for(var idx=0;idx<len;idx++) {
+		var obj = store0.data.items[idx];	
+		document.write(`City Name : ${obj.get('city')}`);
+		document.write("<br/>");
+		document.write(`City Population : ${obj.get('population')}`);
+		document.write("<br/>");
+		document.write(`City Weather : ${obj.get('weather')}`);
+		document.write("<br/>");
+		document.write(`City Vehicles : ${obj.get('vehicle')}`);
+		document.write("<br/>");
+		document.write(`======================================`);
+		document.write("<br/>");
+	}	
+	
+</script>
+</head>
+<body>
+</body>
+</html>
