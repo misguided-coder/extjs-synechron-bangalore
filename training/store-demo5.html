@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/ext-all-debug.js">
+</script>
+<script>
+
+	Ext.define('Syn.gbs.City',{
+		extend : 'Ext.data.Model',
+		fields : [
+			{name:'city',type:'string'},
+			{name:'population',type:'int'},
+			{name:'weather',type:'int',defaultValue:20},
+			{name:'vehicle',type:'int',defaultValue:50000}
+		]		
+	});
+
+	var store0 = Ext.create('Ext.data.ArrayStore', {
+		model : 'Syn.gbs.City',
+		proxy : {
+			type : 'ajax',
+			url : 'data/cities.json',
+			reader : {
+				type : 'json'
+			}
+		}		
+	});
+
+	store0.load(function(){
+		console.log("Data loaded successfully from server!!!!!");
+		display(); 
+	});
+	
+
+	function display () {
+		console.log("Length : "+store0.data.length);
+		var len = store0.data.length;
+		for(var idx=0;idx<len;idx++) {
+			var obj = store0.data.items[idx];	
+			document.write(`City Name : ${obj.get('city')}`);
+			document.write("<br/>");
+			document.write(`City Population : ${obj.get('population')}`);
+			document.write("<br/>");
+			document.write(`City Weather : ${obj.get('weather')}`);
+			document.write("<br/>");
+			document.write(`City Vehicles : ${obj.get('vehicle')}`);
+			document.write("<br/>");
+			document.write(`======================================`);
+			document.write("<br/>");
+		}	
+	}
+
+	
+</script>
+</head>
+<body>
+</body>
+</html>
