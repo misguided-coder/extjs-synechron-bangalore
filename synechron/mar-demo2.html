@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/underscore.js">
+</script>
+<script src="js/lib/jquery.js">
+</script>
+<script src="js/lib/backbone.js">
+</script>
+<script src="js/lib/backbone.marionette.js">
+</script>
+<script>
+
+	
+	SchoolApp = new Marionette.Application();
+
+	SchoolApp.addRegions({
+		mainRegion : '#content0'
+	});
+
+	SimpleView = Marionette.ItemView.extend({		
+		template:'#life-temlate'
+	});	
+
+	SchoolApp.on('start',function(args) {
+		console.log(`SchoolApp ${args.version} is fully up and running!!`);
+		console.log(`SchoolApp is build together by ${args.developers} developers!!`);
+		
+		SchoolApp.mainRegion.show(new SimpleView());
+	});
+
+	$(document).ready(function(){
+		SchoolApp.start({version:'2.0',debug:false,developers:40});		
+	});
+	
+</script>
+</head>
+<body>
+	<div id='content0'>
+	</div>
+	
+	<script type='text/template' id='life-temlate'>
+		<h2>Life is cool</h2>	
+	</script>
+
+</body>
+</html>

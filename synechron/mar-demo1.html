@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/underscore.js">
+</script>
+<script src="js/lib/jquery.js">
+</script>
+<script src="js/lib/backbone.js">
+</script>
+<script src="js/lib/backbone.marionette.js">
+</script>
+<script>
+	
+	SchoolApp = new Marionette.Application();
+
+	SchoolApp.on('initialize:before',function(args) {
+		if(args.debug == true)
+			console.log("SchoolApp is getting initialized!!");
+	});
+
+	SchoolApp.on('initialize:after',function(args) {
+		if(args.debug == true)
+			console.log("SchoolApp is initialization completed!!");
+	});
+
+	SchoolApp.on('start',function(args) {
+		console.log(`SchoolApp ${args.version} is fully up and running!!`);
+		console.log(`SchoolApp is build together by ${args.developers} developers!!`);
+	});
+
+	SchoolApp.start({version:'2.0',debug:false,developers:40});		
+	
+</script>
+</head>
+<body>
+</body>
+</html>

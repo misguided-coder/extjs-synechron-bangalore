@@ -1,0 +1,16 @@
+[
+	{"vin":1000,"model":"X","make":"BMW","color":"Yellow","price":240000000,"launched":true,"launchDate":new Date(2010,05,12),"version":4},
+	{"vin":1001,"model":"X","make":"BMW","color":"Black","price":64000000,"launched":true,"launchDate":new Date(2010,09,10),"version":6},
+	{"vin":1002,"model":"A","make":"Audi","color":"Red","price":90000000,"launched":true,"launchDate":new Date(2007,02,09),"version":7},
+	{"vin":1003,"model":"Q","make":"Audi","color":"Yellow","price":29000000,"launched":false,"launchDate":new Date(2008,05,10),"version":5},
+	{"vin":1004,"model":"Swift","make":"Maruti","color":"Black","price":900000,"launched":true,"launchDate":new Date(2014,05,10),"version":0},
+	{"vin":1005,"model":"800","make":"Maruti","color":"Red","price":890000,"launched":true,"launchDate":new Date(2003,06,10),"version":0},
+	{"vin":1006,"model":"Cruze","make":"Chevrolet","color":"Black","price":1800000,"launched":true,"launchDate":new Date(2016,05,10),"version":0},
+	{"vin":1007,"model":"Beat","make":"Chevrolet","color":"Red","price":800000,"launched":true,"launchDate":new Date(2010,05,12),"version":0},
+	{"vin":1008,"model":"Spark","make":"Chevrolet","color":"Yellow","price":2900000,"launched":true,"launchDate":new Date(2011,05,10),"version":0},
+	{"vin":1009,"model":"Santro","make":"Hyundai","color":"Yellow","price":1300000,"launched":true,"launchDate":new Date(2012,05,10),"version":0},
+	{"vin":1010,"model":"Xing","make":"Hyundai","color":"White","price":900000,"launched":true,"launchDate":new Date(2010,05,04),"version":0},
+	{"vin":1011,"model":"Indigo","make":"Tata","color":"White","price":8900000,"launched":false,"launchDate":new Date(2010,05,12),"version":0},
+	{"vin":1012,"model":"Nano","make":"Tata","color":"Orange","price":100000,"launched":true,"launchDate":new Date(2010,05,12),"version":0}
+
+]

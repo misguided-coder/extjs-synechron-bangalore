@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/underscore.js">
+</script>
+<script src="js/lib/jquery.js">
+</script>
+<script src="js/lib/backbone.js">
+</script>
+<script src="js/lib/backbone.marionette.js">
+</script>
+<script>
+	
+	Student = Backbone.Model.extend({
+		defaults : {
+			rollNo : 1,
+			name : 'Jaggu',
+			age : 20,
+			standard : '10th'
+		},
+		initialize : function() {
+			document.write("Student model is initialized!!");
+			document.write("<br>");
+		},
+		info : function() {
+			document.write(this.get('rollNo'));			
+			document.write("<br>");
+			document.write(this.get('name'));
+			document.write("<br>");
+			document.write(this.get('age'));
+			document.write("<br>");
+			document.write(this.get('standard'));
+			document.write("<br>");
+			document.write("====================================");
+			document.write("<br>");			
+		}
+	});
+
+
+	StudentList = Backbone.Collection.extend({
+		initialize : function() {
+			document.write("StudentList collection is initialized!!");
+			document.write("<br>");
+		}
+	});
+
+	var s1 = new Student({rollNo:10,name:'Mohan',age:16,standard:'8th'});
+	var s2 = new Student({rollNo:20,name:'Sohan',age:13,standard:'8th'});
+	var s3 = new Student({rollNo:30,name:'Rohan',age:15,standard:'10th'});
+	var s4 = new Student({rollNo:40,name:'Ram',age:16,standard:'9th'});
+
+	var studentList = new StudentList([s1,s2,s3,s4]);
+	
+	document.write(studentList.size());
+	document.write("<br>");
+
+	studentList.add(new Student({rollNo:50,name:'Jaggu',age:16,standard:'9th'}));
+
+	document.write(studentList.size());
+	document.write("<br>");
+	
+	studentList.add({rollNo:60,name:'Pintu',age:16,standard:'9th'});
+
+	document.write(studentList.size());
+	document.write("<br>");
+		
+
+/script>
+</head>
+<body>
+</body>
+</html>

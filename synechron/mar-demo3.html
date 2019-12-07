@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/underscore.js">
+</script>
+<script src="js/lib/jquery.js">
+</script>
+<script src="js/lib/backbone.js">
+</script>
+<script src="js/lib/backbone.marionette.js">
+</script>
+<script>
+
+	SchoolApp = new Marionette.Application();
+
+	SchoolApp.addRegions({
+		mainRegion:'#content0'
+	});
+
+	SchoolApp.Student = Backbone.Model.extend({
+		defaults : {
+			name : 'Jaggu',
+			standard : '10th',
+			city : 'Pune'
+		},
+		initialize : function() {
+			console.log("Student model is initialized!!");
+		}
+	});
+
+	SchoolApp.StudentView = Marionette.ItemView.extend({	
+		template:'#studentTemplate',
+	});	
+
+	SchoolApp.on('initialize:after',function(args) {	
+		var student = new SchoolApp.Student();
+		var studentView = new SchoolApp.StudentView({model:student});
+		SchoolApp.mainRegion.show(studentView);
+	});
+
+	$(function(){
+		SchoolApp.start();		
+	});
+	
+</script>
+</head>
+<body>
+
+	<script type='text/template' id='studentTemplate'>
+		<h2>Student name is <%= name %></h2>	
+		<h2>Student studies in <%= standard %> standard</h2>
+		<h2>Student lives in <%= city %> city</h2>
+	</script>
+
+	<div id='content0'>
+	</div>
+
+</body>
+</html>

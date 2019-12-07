@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/lib/underscore.js">
+</script>
+<script src="js/lib/jquery.js">
+</script>
+<script src="js/lib/backbone.js">
+</script>
+<script src="js/lib/backbone.marionette.js">
+</script>
+<script>
+	
+	Student = Backbone.Model.extend({
+		defaults : {
+			rollNo : 1,
+			name : 'Jaggu',
+			age : 20,
+			standard : '10th'
+		},
+		initialize : function() {
+			document.write("Student model is initialized!!");
+			document.write("<br>");
+			this.bind('change',this.doSomething);
+		},
+		doSomething:function(){
+			console.log("I am very reactive model and will take some action now!!");
+		},
+		info : function() {
+			document.write(this.get('rollNo'));			
+			document.write("<br>");
+			document.write(this.get('name'));
+			document.write("<br>");
+			document.write(this.get('age'));
+			document.write("<br>");
+			document.write(this.get('standard'));
+			document.write("<br>");
+			document.write("====================================");
+			document.write("<br>");			
+		}
+	});
+
+	//var student1 = new Student();
+	//var student1 = new Student({rollNo:10,name:'Mohan',age:16,standard:'8th'});
+	//var student1 = new Student({rollNo:10,name:'Mohan'});
+	var student1 = new Student({rollNo:10});
+
+	student1.info();
+
+	//student1.set('name','Chandu');	
+	//student1.set('age',21);	
+
+	//student1.set({'name':'Chandu',age:22});	
+	
+	/*document.write(student1.get('rollNo'));
+	document.write("<br>");
+
+	document.write(student1.get('name'));
+	document.write("<br>");
+		
+	document.write(student1.get('age'));
+	document.write("<br>");*/
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Ext.define("Automobile.model.Car",{
+	extend:"Ext.data.Model",
+	fields:[
+		{name:'vin',type:'int'},
+		{name:'model',type:'string'},
+		{name:'make',type:'string'},
+		{name:'color',type:'string'},
+		{name:'price',type:'float'},
+		{name:'launched',type:'boolean'},
+		{name:'launchDate',type:'date'},
+		{name:'version',type:'int'}
+	]
+});
